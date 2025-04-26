@@ -1,0 +1,57 @@
+name: CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'gly-engine branch'
+        required: false
+        type: string
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  doxygen:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Checkout Repo
+        uses: actions/checkout@v4
+      - 
+        name: Checkout engine
+        uses: actions/checkout@v4
+        with:
+          repository: gamelly/gly-engine
+          ref: ${{ inputs.branch }}
+          path: gly-engine
+      -
+       run: |
+          sudo apt-get -y update
+          sudo apt-get -y install lua5.4 --no-install-recommends
+      - 
+        working-directory: gly-engine
+        run: |
+          ./cli.sh cli-build
+          mv dist/cli.lua ..
+      -
+       run: |
+          lua cli.lua build src/main.lua
+      - 
+        uses: actions/configure-pages@v4
+      -
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+      - 
+        id: deployment
+        uses: actions/deploy-pages@v4
