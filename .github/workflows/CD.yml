@@ -24,10 +24,10 @@ jobs:
   pages:
     runs-on: ubuntu-latest
     steps:
-      - 
-        uses: leafo/gh-actions-lua@v10
-        with:
-          luaVersion: '5.4'
+      -
+        run: |
+          sudo apt-get -y update
+          sudo apt-get -y install lua5.4 --no-install-recommends
       - 
         name: Checkout Repo
         uses: actions/checkout@v4
