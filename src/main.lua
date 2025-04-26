@@ -1,7 +1,7 @@
 local App = {
     title = 'Weather TV',
     author = 'RodrigoDornelles',
-    description = 'see everything about the weather forecast on your television',
+    description = 'Cross-platform TV Weather Application / Widget (Ginga NCL, Tizen, WebOS)',
     version = '1.0.0',
     require = 'json'
 }
@@ -10,8 +10,13 @@ function App.load(std, data)
     std.ui.grid('1x1'):add(std.node.load('src/ui/home.lua')):apply()
 end
 
+App.fonts = {
+    'Weather:Pe-icon-7-weather.ttf'
+}
+
 App.assets = {
     'assets/clean-day.jpg:clean-day.jpg',
+    'assets/Pe-icon-7-weather.ttf:Pe-icon-7-weather.ttf',
     'assets/partly-cloudy-day-64.png:partly-cloudy-day-64.png',
 }
 

@@ -28,6 +28,7 @@ function Menu.load(std, data)
         :add(Options, 2)
         :apply()
 
+    data.ui_grid:get_item(3).data.inverse = true
 end
 function Menu.draw(std, data)
     std.draw.color(0x333333AA)
