@@ -25,7 +25,7 @@ function Menu.load(std, data)
         :add(std.node.load('src/ui/widgets/Calendar.lua'))
         :add(std.node.load('src/ui/widgets/Calendar.lua'))
         :add(std.node.load('src/ui/widgets/Calendar.lua'))
-        :add(Options, 2)
+        :add(std.node.load('src/ui/widgets/Wind.lua'), 2)
         :apply()
 
     data.ui_grid:get_item(3).data.inverse = true

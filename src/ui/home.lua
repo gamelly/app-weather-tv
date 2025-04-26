@@ -15,6 +15,7 @@ function Home.load(std, data)
 end
 
 function Home.draw(std, data)
+    std.text.font_name('Plex')
     std.draw.color(std.color.skyblue)
     std.draw.rect(0, 0, 0, data.width, data.height)
 end

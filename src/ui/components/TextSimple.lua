@@ -13,7 +13,7 @@ function Text.draw(std, data)
         std.text.print_ex(x, y, data.label, align)
     end
     if data.font then
-        std.text.font_name('sans')
+        std.text.font_name('Plex')
     end
 end
 
