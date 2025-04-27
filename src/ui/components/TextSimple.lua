@@ -1,5 +1,11 @@
 local Text = {}
 
+function Text.load(std, data)
+    std.bus.listen(data.listen, function(label)
+        data.label = label
+    end)
+end
+
 function Text.draw(std, data)
     std.draw.color(data.color or std.color.white)
     if data.font then

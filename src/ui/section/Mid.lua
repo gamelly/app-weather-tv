@@ -6,7 +6,9 @@ function Mid.load(std, data)
         :add(std.node.load('src/ui/widgets/BigDay.lua'))
         :apply()
 
-    data.ui_grid:get_item(1).data.labels = {'25', 'ºC'}
+    data.temp = data.ui_grid:get_item(1)
+    data.temp.data.labels = {'00', '\194\186C'}
+    data.temp.data.listeners = {'put_current_temperature'}
 end
 
 return Mid
