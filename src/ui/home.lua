@@ -5,10 +5,9 @@ function Home.load(std, data)
     image.data.src = 'clean-day.jpg'
     std.node.spawn(image)
 
-    std.ui.grid('1x5')
+    std.ui.grid('1x4')
         :add(std.node.load('src/ui/section/Top.lua'))
         :add(std.node.load('src/ui/section/Mid.lua'))
-        :add({})
         :add({})
         :add(std.node.load('src/ui/section/Menu.lua'))
         :apply()

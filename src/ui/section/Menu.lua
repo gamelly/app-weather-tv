@@ -3,6 +3,7 @@ local Options = {}
 
 function Options.load(std, data)
     data.ui_grid = std.ui.grid('1x2')
+        :gap(25)
         :add(std.node.load('src/ui/components/TextButton.lua'))
         :add(std.node.load('src/ui/components/TextButton.lua'))
         :apply()
