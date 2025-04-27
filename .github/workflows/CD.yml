@@ -45,7 +45,7 @@ jobs:
           mv dist/cli.lua ..
       -
        run: |
-          lua cli.lua build src/main.lua
+          lua cli.lua build src/main.lua --fengari
       - 
         uses: actions/configure-pages@v4
       -
