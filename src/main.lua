@@ -8,7 +8,9 @@ local App = {
 
 function App.load(std, data)
     std.node.spawn(std.node.load('src/api/Weather'))
-    std.node.spawn(std.node.load('src/service/CurrentTemperature'))
+    std.node.spawn(std.node.load('src/service/TemperatureNow'))
+    std.node.spawn(std.node.load('src/service/TemperatureDay'))
+    std.node.spawn(std.node.load('src/service/TemperatureWeek'))
     std.ui.grid('1x1'):add(std.node.load('src/ui/home.lua')):apply()
 end
 
