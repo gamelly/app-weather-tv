@@ -2,7 +2,7 @@ local App = {
     title = 'Weather TV',
     author = 'RodrigoDornelles',
     description = 'Cross-platform TV Weather Application / Widget (Ginga NCL, Tizen, WebOS)',
-    version = '1.0.0',
+    version = '0.0.21',
     require = 'http json'
 }
 
@@ -23,8 +23,7 @@ App.fonts = {
 
 App.assets = {
     'assets/clean-day.jpg:clean-day.jpg',
-    'assets/Pe-icon-7-weather.ttf:Pe-icon-7-weather.ttf',
-    'assets/partly-cloudy-day-64.png:partly-cloudy-day-64.png',
+    'assets/Pe-icon-7-weather.ttf:Pe-icon-7-weather.ttf'
 }
 
 return App
