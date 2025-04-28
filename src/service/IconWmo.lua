@@ -13,7 +13,7 @@ function IconWmo.on_weather_api_response_day(std, data, api)
     end
     
     while index <= #api.hourly.time and count <= 7 do
-        if api.hourly.time[index] <= timestamp then
+        if true then
             local is_day = api.hourly.is_day[index]
             local wmo = api.hourly.weather_code[index]
             local emoji_code = (((wmo - 0) + (is_day * 100)) * 3) + 1
