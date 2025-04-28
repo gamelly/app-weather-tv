@@ -26,6 +26,7 @@ function GeoLoc.init(std, data)
         :param('lang', 'pt-BR')
         :success(geoloc_success)
         :failed(geoloc_failed)
+        :noforce()
         :run()
 end
 
