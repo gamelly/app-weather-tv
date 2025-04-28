@@ -1,5 +1,8 @@
 name: CD
 
+env:
+  CLOUDFLARE_PROJECT_EXAMPLE: weather-gly
+
 on:
   workflow_dispatch:
     inputs:
@@ -21,14 +24,26 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  pages:
+  build:
+    name: pages (${{ matrix.project.name }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project:
+          -
+            name: auto
+          -
+            name: 720p
+            flag: --screen 1280x720
+          - 
+            name: 1080p
+            flag: --screen 1920x1080
     steps:
       -
         run: |
           sudo apt-get -y update
           sudo apt-get -y install lua5.4 --no-install-recommends
-      - 
+      -
         name: Checkout Repo
         uses: actions/checkout@v4
       - 
@@ -45,13 +60,23 @@ jobs:
           mv dist/cli.lua ..
       -
        run: |
-          lua cli.lua build src/main.lua --fengari
+          lua cli.lua build src/main.lua --fengari ${{ matrix.project.flag }}
       - 
+        if: ${{ !matrix.project.flag }}
         uses: actions/configure-pages@v4
       -
+        if: ${{ !matrix.project.flag }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist'
       - 
-        id: deployment
+        if: ${{ !matrix.project.flag }}
         uses: actions/deploy-pages@v4
+      - 
+        if: ${{ matrix.project.flag }}
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ matrix.project.name }}-${{ env.CLOUDFLARE_PROJECT_EXAMPLE }}
+          directory: dist
