@@ -1,6 +1,13 @@
 local Text = {}
 
+function Text.load(std, data)
+    std.bus.listen(data.listen, function(label)
+        data.label = label
+    end)
+end
+
 function Text.draw(std, data)
+    if not data.label then return end
     if not data.padding then
         data.padding = 0
     end

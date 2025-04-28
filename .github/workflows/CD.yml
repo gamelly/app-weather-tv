@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: 'gly-engine branch'
+        description: 'Use gly-engine from (branch)'
         required: false
         type: string
   push:
@@ -21,9 +21,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  doxygen:
+  pages:
     runs-on: ubuntu-latest
     steps:
+      -
+        run: |
+          sudo apt-get -y update
+          sudo apt-get -y install lua5.4 --no-install-recommends
       - 
         name: Checkout Repo
         uses: actions/checkout@v4
@@ -34,10 +38,6 @@ jobs:
           repository: gamelly/gly-engine
           ref: ${{ inputs.branch }}
           path: gly-engine
-      -
-       run: |
-          sudo apt-get -y update
-          sudo apt-get -y install lua5.4 --no-install-recommends
       - 
         working-directory: gly-engine
         run: |
@@ -45,7 +45,7 @@ jobs:
           mv dist/cli.lua ..
       -
        run: |
-          lua cli.lua build src/main.lua
+          lua cli.lua build src/main.lua --fengari
       - 
         uses: actions/configure-pages@v4
       -

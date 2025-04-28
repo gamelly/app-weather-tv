@@ -8,6 +8,7 @@ function Btn.load(std, data)
     data.text = data.ui_grid:get_item(1)
     data.text.data.label = data.label
     data.text.data.size = data.size
+    data.text.data.font = data.font
     data.text.data.center_x = true
     data.text.data.center_y = true
 end
