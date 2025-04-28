@@ -9,10 +9,10 @@ local function weather_week(std, data)
     std.bus.emit('on_weather_api_response_week', std.http.body)
 end
 
-function WeatherApi.init(std, data)
+function WeatherApi.on_geolocation_init(std, data, latitude, longitude)
     std.http.get(base_url):json()
-        :param('latitude', '-23.5489')
-        :param('longitude', '-46.6388')
+        :param('latitude', tostring(latitude))
+        :param('longitude', tostring(longitude))
         :param('current', 'is_day,weather_code,temperature_2m')
         :param('hourly', 'is_day,weather_code,temperature_2m')
         :param('timeformat','unixtime')

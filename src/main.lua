@@ -7,6 +7,7 @@ local App = {
 }
 
 function App.load(std, data)
+    std.node.spawn(std.node.load('src/api/GeoLoc'))
     std.node.spawn(std.node.load('src/api/Weather'))
     std.node.spawn(std.node.load('src/service/IconWmo'))
     std.node.spawn(std.node.load('src/service/TemperatureNow'))

@@ -8,7 +8,7 @@ function Top.load(std, data)
         :apply()
 
     data.city = data.ui_grid:get_item(1)
-    data.city.data.label = 'Florianopolis, SC, Brasil'
+    data.city.data.listen = 'put_gelocation_str'
     data.city.data.padding = 8
 
     data.ui_grid:get_item(2).data.labels = {
