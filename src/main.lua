@@ -13,7 +13,7 @@ function App.load(std, data)
     std.node.spawn(std.node.load('src/service/TemperatureNow'))
     std.node.spawn(std.node.load('src/service/TemperatureDay'))
     std.node.spawn(std.node.load('src/service/TemperatureWeek'))
-    std.ui.grid('1x1'):add(std.node.load('src/ui/home.lua')):apply()
+    std.ui.grid('1x1'):add(std.node.load('src/ui/pages/home.lua')):apply()
 end
 
 App.fonts = {
