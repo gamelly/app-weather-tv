@@ -17,7 +17,7 @@ function App.load(std, data)
 end
 
 App.fonts = {
-    'Plex:https://cdn.jsdelivr.net/gh/gamelly/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf',
+    'Plex:https://cdn.jsdelivr.net/gh/gly-engine/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf',
     'Weather:Pe-icon-7-weather.ttf'
 }
 
