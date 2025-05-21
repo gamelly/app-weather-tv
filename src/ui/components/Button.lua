@@ -14,7 +14,7 @@ function Btn.load(std, data)
 end
 
 function Btn.draw(std, data)
-    std.draw.color(0x33333FF)
+    std.draw.color(0x4a434dFF)
     std.draw.rect(0, 0, 0, data.width, data.height)
 end
 
