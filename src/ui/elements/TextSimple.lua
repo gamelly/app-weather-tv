@@ -12,11 +12,15 @@ function Text.draw(std, data)
         std.text.font_name(data.font)
     end
     if data.size and data.label then
-        local align = data.center_x and 0 or 1
+        local alignx = data.center_x and 0 or 1
+        local aligny = data.center_y and 0 or 1
         local x = data.center_x and (data.width/2) or 0
         local y = data.center_y and (data.height/2) or 0
         std.text.font_size(data.size)
-        std.text.print_ex(x, y, data.label, align)
+        if data.padding_x then
+            x = x + data.padding_x
+        end
+        std.text.print_ex(x, y, data.label, alignx, aligny)
     end
     if data.font then
         std.text.font_name('Plex')
