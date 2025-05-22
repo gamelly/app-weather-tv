@@ -1,20 +1,21 @@
 local Mid = {}
 
 function Mid.load(std, data)
-    local grid = std.ui.grid('5x2')
-        :margin(50)
-        :add(std.node.load('src/ui/widgets/BigDay.lua'))
-        :add(std.node.load('src/ui/widgets/BigDay.lua'))
+    local grid = std.ui.grid('14x1')
+        :add({},11)
+        :add(std.node.load('src/ui/section/MenuInfos.lua'), 3)
         :apply()
 
-    local temp = grid:get_item(1)
-    temp.data.labels = {'00', '\194\186C'}
-    temp.data.listeners = {'put_current_temperature'}
+    local info = grid:get_item(1)
+    info.data.background = false
 
-    local wmo = grid:get_item(2)
-    wmo.data.fonts = {'Weather'}
-    wmo.data.labels = {'.'}
-    wmo.data.listeners = {'put_current_icon_wmo'}
+    -- ## Another way to do it, with a side bar
+        
+    -- local grid = std.ui.grid('14x1')
+    --     :add({},11)
+    --     :add(std.node.load('src/ui/widgets/Background.lua'),3)
+    --     :add(std.node.load('src/ui/widgets/Background.lua'),3)
+    --     :apply()
 end
 
 return Mid

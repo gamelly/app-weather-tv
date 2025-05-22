@@ -7,8 +7,8 @@ function Home.load(std, data)
 
     std.ui.grid('1x4')
         :add(std.node.load('src/ui/section/Top.lua'))
-        :add(std.node.load('src/ui/section/Mid.lua'))
         :add({})
+        :add(std.node.load('src/ui/section/Mid.lua'))
         :add(std.node.load('src/ui/section/Menu.lua'))
         :apply()
 end
