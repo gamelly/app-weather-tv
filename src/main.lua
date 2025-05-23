@@ -24,7 +24,8 @@ App.fonts = {
 App.assets = {
     'assets/clean-day.jpg:clean-day.jpg',
     'assets/opening_background.png:assets/opening_background.png',
-    'assets/Pe-icon-7-weather.ttf:Pe-icon-7-weather.ttf'
+    'assets/Pe-icon-7-weather.ttf:Pe-icon-7-weather.ttf',
+    'assets/home_icon.png:assets/home_icon.png'
 }
 
 return App

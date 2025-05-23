@@ -1,5 +1,6 @@
 local Menu = {}
 local Options = {}
+local Return_btn = {}
 
 function Options.load(std, data)
     data.ui_grid = std.ui.grid('1x2')
@@ -14,11 +15,21 @@ function Options.load(std, data)
     data.ui_grid:get_item(2).data.size = 20
 end
 
+function Return_btn.load(std, data)
+    data.ui_grid = std.ui.grid('1x1')
+        :gap(25)
+        :add(std.node.load('src/ui/components/BackButton.lua'))
+        :apply()
+        
+    data.ui_grid:get_item(1).data.src = 'assets/home_icon.png'
+    data.ui_grid:get_item(1).data.label = 'Home'
+end
+
 function Menu.load(std, data)
     local index = 1
 
     local grid = std.ui.grid('14x1')
-        :add(std.node.load('src/ui/widgets/Wind.lua'))
+        :add(Return_btn)
         :add(Options, 2)
         :add(std.node.load('src/ui/widgets/Calendar.lua'))
         :add(std.node.load('src/ui/widgets/Calendar.lua'))
